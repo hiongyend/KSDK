@@ -1,0 +1,32 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.mrkzs.android.middle_ksdk">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity
+            android:name="com.mrkzs.android.middle_ksdk.SplashActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!--这个时候 ysdk有闪屏 那就不能把我们的闪屏为启动页了 可以让ysdk闪屏继承我们闪屏-->
+        <activity
+            android:name="com.mrkzs.android.ksdk_lib.open.SplashActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+        </activity>
+        <activity android:name="com.mrkzs.android.middle_ksdk.demo.DemoActivity"/>
+
+        <!--这个入口需要cp接入sdk的时候配置-->
+        <meta-data android:name="KSDK_LAUNCHER_ACTIVITY" android:value="com.mrkzs.android.middle_ksdk.demo.DemoActivity"/>
+    </application>
+</manifest>

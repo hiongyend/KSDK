@@ -1,0 +1,3 @@
+rootProject.name='KSDKMiddle'
+include ':middle_ksdk'
+include ':middle_ysdk'
