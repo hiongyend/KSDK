@@ -1,5 +1,7 @@
 package com.mrkzs.android.ksdk_lib.open.req;
 
+import java.io.Serializable;
+
 /**
  * Created by KINCAI
  * <p>
@@ -7,7 +9,7 @@ package com.mrkzs.android.ksdk_lib.open.req;
  * <p>
  * Date 2020-05-18 15:44
  */
-public class OrderReq {
+public class OrderReq implements Serializable {
     private String orderId;//游戏方订单号
     private int amount;//订单价格（单位：分）整数
     private String goodsName;//订单描述

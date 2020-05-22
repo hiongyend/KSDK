@@ -44,7 +44,7 @@ public class KSDKAuth {
 
     public void pay(Activity activity, OrderReq orderReq) {
         //调用支付 先获取订单
-        SDKBridge.get().pay(activity);
+        SDKBridge.get().pay(activity, orderReq);
     }
 
     public void setRoleData(RoleInfoReq roleInfoReq) {

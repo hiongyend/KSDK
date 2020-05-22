@@ -1,7 +1,10 @@
 package com.mrkzs.android.ksdk_lib.open;
 
 import android.app.Activity;
+import android.content.Intent;
 
+import com.mrkzs.android.ksdk_lib.auth.pay.PayActivity;
+import com.mrkzs.android.ksdk_lib.open.req.OrderReq;
 import com.mrkzs.android.ksdk_lib.open.resp.UserResp;
 
 /**
@@ -64,11 +67,9 @@ public class SDKBridge {
      *
      * @param activity 上下文
      */
-    public void pay(Activity activity) {
+    public void pay(Activity activity, OrderReq orderReq) {
         //模拟支付
-        if (getIsdkCallback() != null) {
-            getIsdkCallback().onPayResponse();
-        }
+        activity.startActivity(new Intent(activity, PayActivity.class).putExtra("order_req", orderReq));
     }
 
     /**

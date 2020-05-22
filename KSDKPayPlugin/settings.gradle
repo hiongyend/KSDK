@@ -1,0 +1,2 @@
+rootProject.name='KSDKPayPlugin'
+include ':ksdk_payplugin'

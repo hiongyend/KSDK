@@ -18,7 +18,7 @@
             </intent-filter>
         </activity>
         <activity android:name="com.mrkzs.android.middle_ksdk.demo.DemoActivity"/>
-
+        <activity android:name="com.mrkzs.android.ksdk_lib.auth.pay.PayActivity"/>
         <!--这个入口需要cp接入sdk的时候配置-->
         <meta-data android:name="KSDK_LAUNCHER_ACTIVITY" android:value="com.mrkzs.android.middle_ksdk.demo.DemoActivity"/>
     </application>
