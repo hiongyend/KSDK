@@ -14,13 +14,14 @@ import androidx.annotation.Nullable;
 /**
  * Created by KINCAI
  * <p>
- * Desc TODO
+ * Desc 远程支付服务
  * <p>
  * Date 2020-05-21 16:55
  */
 public class PayRemoteService extends Service {
     private final String TAG = this.getClass().getSimpleName();
     private RemoteBinder remoteBinder;
+    //广播action
     public static final String PAY_REMOTE_ACTION = "com.mrkzs.android.ksdk_payplugin.pay_remote";
     private PayRemoteReceiver payRemoteReceiver;
 
@@ -53,7 +54,6 @@ public class PayRemoteService extends Service {
             Log.e(TAG, "[pay_plugin]-remote service pay "+orderId+" "+Thread.currentThread().getName());
             if (iPayRemoteCallback != null) {
                 iPayRemoteCallback.startActivity(getPackageName(), "com.mrkzs.android.ksdk_payplugin.PayActivity", 1, orderId);
-
             }
         }
 
@@ -68,6 +68,9 @@ public class PayRemoteService extends Service {
         }
     }
 
+    /**
+     * 用于跟插件内通信的广播，可采用其他方式 模拟实现 仅供参考
+     */
     class PayRemoteReceiver extends BroadcastReceiver {
 
         @Override

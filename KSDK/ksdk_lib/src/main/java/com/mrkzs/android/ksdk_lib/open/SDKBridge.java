@@ -1,6 +1,8 @@
 package com.mrkzs.android.ksdk_lib.open;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 
 import com.mrkzs.android.ksdk_lib.auth.pay.PayActivity;
@@ -95,10 +97,31 @@ public class SDKBridge {
      *
      * @param activity 上下文
      */
-    public void exitGame(Activity activity, ISDKExitCallback callback) {
-        //模拟退出，实际退出要有弹窗确认或取消
-        if(callback != null) {
-            callback.onExit();
-        }
+    public void exitGame(Activity activity, final ISDKExitCallback callback) {
+        //模拟退出，退出要有弹窗确认或取消
+        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+        builder.setCancelable(false);
+        builder.setTitle("退出游戏");
+        builder.setMessage("确定要退出游戏？");
+        builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                if(callback != null) {
+                    callback.onExit();
+                }
+            }
+        });
+        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                if(callback != null) {
+                    callback.onCancel();
+                }
+            }
+        });
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+
     }
 }

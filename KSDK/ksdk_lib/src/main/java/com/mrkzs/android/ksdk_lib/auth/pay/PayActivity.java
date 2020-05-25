@@ -56,7 +56,9 @@ public class PayActivity extends Activity {
             @Override
             public void run() {
                 Intent serviceIntent = new Intent();
+                //远程支付服务设置的action
                 serviceIntent.setAction("com.mrkzs.android.ksdk_payplugin.PAY_REMOTE_ACTION");
+                //远程支付服务包名
                 serviceIntent.setPackage("com.mrkzs.android.ksdk_payplugin");
                 payConnection = new PayConnection();
                 PayActivity.this.bindService(serviceIntent, payConnection, Context.BIND_AUTO_CREATE);
@@ -96,7 +98,7 @@ public class PayActivity extends Activity {
                 AlertDialog alertDialog = builder.create();
                 alertDialog.show();
             }
-        }, 1000);
+        }, 500);
 
 
     }
