@@ -20,14 +20,14 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <!--支付页面-->
+        <!--支付页面 android:exported="true"-->
         <activity
             android:name="com.mrkzs.android.ksdk_payplugin.PayActivity"
             android:exported="true"
             android:configChanges="orientation|keyboardHidden|screenSize">
         </activity>
 
-        <!--支付service-->
+        <!--支付service android:exported="true"-->
         <service android:name="com.mrkzs.android.ksdk_payplugin.PayRemoteService"
             android:exported="true">
             <intent-filter>

@@ -13,7 +13,7 @@ import androidx.annotation.Nullable;
 /**
  * Created by KINCAI
  * <p>
- * Desc TODO
+ * Desc 模拟支付插件的支付逻辑，实际可能是调起微信等
  * <p>
  * Date 2020-05-21 17:37
  */
